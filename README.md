@@ -14,4 +14,4 @@ A template for simple web applications written in Go.
 
 * Create a new repo from this template
 * Replace the module name `github.com/wawe/go-app-template` with the name of your own module in all files
-* Run `???` and begin developing
+* Run `go run ./cmd/dev-server` and begin developing
