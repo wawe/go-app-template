@@ -3,8 +3,13 @@ import { render } from './view.js'
 import { initState } from './model.js'
 
 function dispatch(action) {
-    action(window.state)
+    const sideEffect = action(window.state)
     renderView(window.state)
+    if (sideEffect) {
+        sideEffect()
+            .then(action => { if (action) { dispatch(action) }})
+            .catch(console.log)
+    }
 }
 
 function renderView(state) {
