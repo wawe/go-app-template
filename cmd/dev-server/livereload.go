@@ -8,18 +8,6 @@ import (
 	"github.com/jaschaephraim/lrserver"
 )
 
-func main() {
-	LRServer()
-}
-
-func LRServer() {
-	lr := lrserver.New(lrserver.DefaultName, lrserver.DefaultPort)
-	go LRWatcher(lr)
-
-	log.Printf("LiveReload server listening at :%d", lrserver.DefaultPort)
-	lr.ListenAndServe()
-}
-
 func LRWatcher(lr *lrserver.Server) {
 	watcher, err := fsnotify.NewWatcher()
 	if err != nil {
