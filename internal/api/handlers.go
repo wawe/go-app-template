@@ -8,6 +8,10 @@ import (
 )
 
 func (s *APIServer) getTodo(w http.ResponseWriter, r *http.Request) {
+	if s.todos == nil {
+		s.todos = make(todo.List, 0)
+	}
+
 	bytes, err := json.Marshal(s.todos)
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)

@@ -8,15 +8,15 @@ import (
 )
 
 func Main(address string) {
-	mux := routes()
+	mux := routes("./static")
 	log.Printf("Starting server on %s", address)
 	err := http.ListenAndServe(address, mux)
 	log.Fatal(err)
 }
 
-func routes() *http.ServeMux {
+func routes(staticDir string) *http.ServeMux {
 	mux := http.NewServeMux()
-	mux.Handle("/", http.FileServer(http.Dir("./static")))
+	mux.Handle("/", http.FileServer(http.Dir(staticDir)))
 	mux.Handle("/api/", api.Handler())
 	return mux
 }
