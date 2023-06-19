@@ -15,5 +15,5 @@ func main() {
 	log.Printf("LiveReload server listening at :%d", lrserver.DefaultPort)
 	go lr.ListenAndServe()
 
-	server.Main()
+	server.Main("localhost:8080")
 }
