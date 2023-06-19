@@ -7,7 +7,7 @@ import (
 	"github.com/wawe/go-app-template/internal/todo"
 )
 
-func (s *apiServer) getTodo(w http.ResponseWriter, r *http.Request) {
+func (s *APIServer) getTodo(w http.ResponseWriter, r *http.Request) {
 	bytes, err := json.Marshal(s.todos)
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
@@ -20,7 +20,7 @@ func (s *apiServer) getTodo(w http.ResponseWriter, r *http.Request) {
 	w.Write(bytes)
 }
 
-func (s *apiServer) putTodo(w http.ResponseWriter, r *http.Request) {
+func (s *APIServer) putTodo(w http.ResponseWriter, r *http.Request) {
 	var newTodo todo.Item
 
 	dec := json.NewDecoder(r.Body)
@@ -35,7 +35,7 @@ func (s *apiServer) putTodo(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusNoContent)
 }
 
-func (s *apiServer) deleteTodo(w http.ResponseWriter, r *http.Request) {
+func (s *APIServer) deleteTodo(w http.ResponseWriter, r *http.Request) {
 	var deletion todo.Deletion
 
 	dec := json.NewDecoder(r.Body)

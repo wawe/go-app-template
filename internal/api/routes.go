@@ -7,18 +7,15 @@ import (
 	"github.com/wawe/go-app-template/internal/todo"
 )
 
-type apiServer struct {
+type APIServer struct {
 	todos todo.List
 }
 
-func Handler() *http.ServeMux {
-	mux := http.NewServeMux()
-	s := apiServer{}
-	mux.HandleFunc("/api/todo", s.todo)
-	return mux
+func Handler() *APIServer {
+	return &APIServer{}
 }
 
-func (s *apiServer) todo(w http.ResponseWriter, r *http.Request) {
+func (s *APIServer) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	switch r.Method {
 	case http.MethodGet:
 		s.getTodo(w, r)
