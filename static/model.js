@@ -1,5 +1,16 @@
 /* SIDE EFFECTS */
 
+class SideEffect {
+    constructor(func, ...args) {
+        this.func = func
+        this.args = args
+    }
+
+    execute() {
+        return this.func(...this.args)
+    }
+}
+
 async function apiCall(method, body) {
     const response = await fetch("/api/todo", {method, body})
     if (response.ok) {
@@ -12,16 +23,19 @@ async function apiCall(method, body) {
         return Promise.reject(await response.text())
     }
 }
-function fetchTodos() {
+
+function fetchTodos0() {
     return apiCall("GET").then(setTodos)
 }
 
+const fetchTodos = new SideEffect(fetchTodos0)
+
 function putTodo(item) {
-    return () => apiCall("PUT", JSON.stringify(item))
+    return new SideEffect(apiCall, "PUT", JSON.stringify(item))
 }
 
 function deleteTodos(ids) {
-    return () => apiCall("DELETE", JSON.stringify({ids}))
+    return new SideEffect(apiCall, "DELETE", JSON.stringify({ids}))
 }
 
 /* ACTIONS */
@@ -82,9 +96,13 @@ function generateId() {
 
 export {
     initState,
+    setTodos,
     setNewInput,
     createTodo,
     deleteTodo,
     toggleDone,
     clearCompleted,
+    fetchTodos,
+    putTodo,
+    deleteTodos,
 }

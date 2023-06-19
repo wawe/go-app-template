@@ -6,7 +6,7 @@ function dispatch(action) {
     const sideEffect = action(window.state)
     renderView(window.state)
     if (sideEffect) {
-        sideEffect()
+        sideEffect.execute()
             .then(action => { if (action) { dispatch(action) }})
             .catch(console.log)
     }
