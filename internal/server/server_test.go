@@ -27,5 +27,5 @@ func TestRoot(t *testing.T) {
 	assert.HTTPStatusCode(t,
 		testServer.ServeHTTP, "GET", "/", nil, http.StatusOK)
 	assert.HTTPBodyContains(t,
-		testServer.ServeHTTP, "GET", "/", nil, `<body id="appRoot"></body>`)
+		testServer.ServeHTTP, "GET", "/", nil, `script src="app.js" type="module"></script>`)
 }
