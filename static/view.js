@@ -1,12 +1,11 @@
 // @ts-check
-import { html } from './lit-html.js'
-import { clearCompleted, createTodo, deleteTodo, setNewInput, toggleDone } from './model.js'
-
 /**
  * @typedef {import("./types.d.ts").TodoItem} TodoItem
  * @typedef {import("./types.d.ts").State} State
  * @typedef {import("./types.d.ts").DispatchFunction} DispatchFunction
  */
+import { html } from './lit-html.js'
+import { clearCompleted, createTodo, deleteTodo, setNewInput, toggleDone } from './model.js'
 
  /**
  * @param {State} state

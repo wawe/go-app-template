@@ -1,12 +1,11 @@
 // @ts-check
-import { render as renderHTML } from './lit-html.js'
-import { render } from './view.js'
-import { initState } from './model.js'
-
 /**
  * @typedef {import("./types.d.ts").State} State
  * @typedef {import("./types.d.ts").DispatchFunction} DispatchFunction
  */
+import { render as renderHTML } from './lit-html.js'
+import { render } from './view.js'
+import { initState } from './model.js'
 
 /**
  * @type {DispatchFunction}
