@@ -22,8 +22,11 @@ jobs:
         with:
           deno-version: v1.x
 
-      - name: Run linter
+      - name: Lint
         run: deno lint
+
+      - name: Check types
+        run: deno check **/*.{js,ts}
 
       - name: Run tests
         run: deno test -A

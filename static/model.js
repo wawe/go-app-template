@@ -1,7 +1,18 @@
+// @ts-check
+/// <reference types="./types.d.ts">
+
 /* SIDE EFFECTS */
 
+/**
+ * @template {any[]} ARGS
+ */
 class SideEffect {
-    constructor(func, ...args) {
+
+    /**
+     * @param {(...args: ARGS) => SideEffectResult} func
+     * @param {ARGS} args
+     */
+    constructor(func, args) {
         this.func = func
         this.args = args
     }
@@ -11,6 +22,12 @@ class SideEffect {
     }
 }
 
+/**
+ *
+ * @param {string} method
+ * @param {string} [body]
+ * @returns {Promise<?>}
+ */
 async function apiCall(method, body) {
     const response = await fetch("/api/todo", {method, body})
     if (response.ok) {
@@ -28,36 +45,45 @@ function fetchTodos0() {
     return apiCall("GET").then(setTodos)
 }
 
-const fetchTodos = new SideEffect(fetchTodos0)
+const fetchTodos = new SideEffect(fetchTodos0, [])
 
+/** @param {TodoItem} item */
 function putTodo(item) {
-    return new SideEffect(apiCall, "PUT", JSON.stringify(item))
+    return new SideEffect(apiCall, ["PUT", JSON.stringify(item)])
 }
 
+/** @param {Array<number>} ids */
 function deleteTodos(ids) {
-    return new SideEffect(apiCall, "DELETE", JSON.stringify({ids}))
+    return new SideEffect(apiCall, ["DELETE", JSON.stringify({ids})])
 }
 
 /* ACTIONS */
 
+/**
+ * @param {Record<string, ?>} state
+ * @returns {SideEffect<?>}
+ */
 function initState(state) {
     state.todos = []
     state.newInput = ''
     return fetchTodos
 }
 
+/** @type {ParameterizedAction<Array<TodoItem>>} */
 function setTodos(todos) {
     return function(state) {
         state.todos = todos
     }
 }
 
+/** @type {ParameterizedAction<string>} */
 function setNewInput(value) {
     return function(state) {
         state.newInput = value
     }
 }
 
+/** @type {Action} */
 function createTodo(state) {
     const item = {
         id: generateId(),
@@ -69,14 +95,18 @@ function createTodo(state) {
     return putTodo(item)
 }
 
+/** @type {ParameterizedAction<number>} */
 function toggleDone(id) {
     return function(state) {
         const todo = state.todos.find(e => e.id === id)
-        todo.done = !todo.done
-        return putTodo(todo)
+        if (todo) {
+            todo.done = !todo.done
+            return putTodo(todo)
+        }
     }
 }
 
+/** @type {ParameterizedAction<number>} */
 function deleteTodo(id) {
     return function(state) {
         state.todos = state.todos.filter( e => e.id !== id)
@@ -84,6 +114,7 @@ function deleteTodo(id) {
     }
 }
 
+/** @type {Action} */
 function clearCompleted(state) {
     const deleted = state.todos.filter(e => e.done).map(e => e.id)
     state.todos = state.todos.filter(e => !e.done)
@@ -105,4 +136,5 @@ export {
     fetchTodos,
     putTodo,
     deleteTodos,
+    SideEffect,
 }
