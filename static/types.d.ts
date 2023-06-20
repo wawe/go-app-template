@@ -20,3 +20,12 @@ type SideEffectResult = Promise<Action | void>
 interface SideEffect {
     execute: () => Promise<Action | void>
 }
+
+export {
+    TodoItem,
+    State,
+    Action,
+    ParameterizedAction,
+    DispatchFunction,
+    SideEffectResult,
+}

@@ -1,11 +1,15 @@
 // @ts-check
-/// <reference types="./types.d.ts">
 import { render as renderHTML } from './lit-html.js'
 import { render } from './view.js'
 import { initState } from './model.js'
 
 /**
- * @param {Action} action
+ * @typedef {import("./types.d.ts").State} State
+ * @typedef {import("./types.d.ts").DispatchFunction} DispatchFunction
+ */
+
+/**
+ * @type {DispatchFunction}
  */
 function dispatch(action) {
     const sideEffect = action(state)

@@ -1,5 +1,13 @@
 // @ts-check
-/// <reference types="./types.d.ts">
+/**
+ * @typedef {import("./types.d.ts").TodoItem} TodoItem
+ * @typedef {import("./types.d.ts").State} State
+ * @typedef {import("./types.d.ts").SideEffectResult} SideEffectResult
+ * @typedef {import("./types.d.ts").Action} Action
+ * @typedef {import("./types.d.ts").ParameterizedAction<string>} ParameterizedActionS
+ * @typedef {import("./types.d.ts").ParameterizedAction<Array<TodoItem>>} ParameterizedActionT
+ * @typedef {import("./types.d.ts").ParameterizedAction<number>} ParameterizedActionN
+ */
 
 /* SIDE EFFECTS */
 
@@ -69,14 +77,14 @@ function initState(state) {
     return fetchTodos
 }
 
-/** @type {ParameterizedAction<Array<TodoItem>>} */
+/** @type {ParameterizedActionT} */
 function setTodos(todos) {
     return function(state) {
         state.todos = todos
     }
 }
 
-/** @type {ParameterizedAction<string>} */
+/** @type {ParameterizedActionS} */
 function setNewInput(value) {
     return function(state) {
         state.newInput = value
@@ -95,7 +103,7 @@ function createTodo(state) {
     return putTodo(item)
 }
 
-/** @type {ParameterizedAction<number>} */
+/** @type {ParameterizedActionN} */
 function toggleDone(id) {
     return function(state) {
         const todo = state.todos.find(e => e.id === id)
@@ -106,7 +114,7 @@ function toggleDone(id) {
     }
 }
 
-/** @type {ParameterizedAction<number>} */
+/** @type {ParameterizedActionN} */
 function deleteTodo(id) {
     return function(state) {
         state.todos = state.todos.filter( e => e.id !== id)
