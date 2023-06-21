@@ -1,0 +1,14 @@
+{
+  "version": "2",
+  "remote": {
+    "https://cdn.skypack.dev/-/lit-html@v2.7.4-2StHDJWm5SxThnkkUVIm/dist=es2019,mode=imports/optimized/lit-html.js": "8b62f74948f2bcab4767981188527f76f2f08d81f9f114c2ab5147f3fbfd3c30",
+    "https://cdn.skypack.dev/-/lit-html@v2.7.4-2StHDJWm5SxThnkkUVIm/dist=es2019,mode=types/directive.d.ts": "6f5cd738ca1a9d1f737c102023ba93d9da33a7fc9ebfde3409b7b87adc98aad4",
+    "https://cdn.skypack.dev/-/lit-html@v2.7.4-2StHDJWm5SxThnkkUVIm/dist=es2019,mode=types/lit-html.d.ts": "5af3841bad9a39dabeb3833e2d2267d9b52e624346385b0d142b0a9590a88277",
+    "https://cdn.skypack.dev/error/unknown:trusted-types?from=lit-html": "1a69156d4d6e915e4e8637b003843a3f29b827efa4eb0e5e5d8f5f842a90c4e6",
+    "https://cdn.skypack.dev/lit-html@2.7.4?dts": "9527f3e2688a6c8aaf3c24c5cae4a1076418e130bc82d2adad4a6cc39828d74b",
+    "https://deno.land/std@0.192.0/fmt/colors.ts": "d67e3cd9f472535241a8e410d33423980bec45047e343577554d3356e1f0ef4e",
+    "https://deno.land/std@0.192.0/testing/_diff.ts": "1a3c044aedf77647d6cac86b798c6417603361b66b54c53331b312caeb447aea",
+    "https://deno.land/std@0.192.0/testing/_format.ts": "a69126e8a469009adf4cf2a50af889aca364c349797e63174884a52ff75cf4c7",
+    "https://deno.land/std@0.192.0/testing/asserts.ts": "e16d98b4d73ffc4ed498d717307a12500ae4f2cbe668f1a215632d19fcffc22f"
+  }
+}
