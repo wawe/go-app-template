@@ -30,6 +30,6 @@ function renderView(state) {
 const state = /** @type {State} */ ({})
 
 // @ts-ignore: assignment just used for debugging in the browser console
-window.state = state
+globalThis.state = state
 
 document.addEventListener('DOMContentLoaded', () => dispatch(initState))
