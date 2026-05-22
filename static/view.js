@@ -10,7 +10,6 @@ import { clearCompleted, createTodo, deleteTodo, setNewInput, toggleDone } from 
  /**
  * @param {State} state
  * @param {DispatchFunction} dispatch
- * @returns {import('https://cdn.skypack.dev/lit-html@2.7.4?dts').TemplateResult}
  */
 function render(state, dispatch) {
 
