@@ -1,5 +1,9 @@
 {
     "compilerOptions": {
         "lib": [ "dom", "deno.ns" ]
+    },
+    "imports": {
+        "@std/testing/asserts": "https://deno.land/std@0.192.0/testing/asserts.ts",
+        "lit-html": "npm:lit-html@3.2.1"
     }
 }

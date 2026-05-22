@@ -1,5 +1,5 @@
 import { clearCompleted, createTodo, deleteTodo, deleteTodos, fetchTodos, initState, putTodo, setNewInput, setTodos, toggleDone } from "../static/model.js"
-import { assertEquals, assertFalse } from "jsr:@std/assert"
+import { assertEquals, assertFalse } from "@std/testing/asserts"
 
 Deno.test("model", async (t) => {
     // deno-lint-ignore no-explicit-any
