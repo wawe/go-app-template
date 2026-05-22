@@ -1,1 +1,1 @@
-export {render, html} from 'https://cdn.skypack.dev/lit-html@3.2.1?dts'
+export {render, html} from 'https://cdn.jsdelivr.net/npm/lit-html@3.3.3/+esm'

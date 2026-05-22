@@ -1,6 +1,22 @@
 {
-  "version": "4",
+  "version": "5",
+  "specifiers": {
+    "jsr:@std/assert@*": "1.0.19",
+    "jsr:@std/internal@^1.0.12": "1.0.13"
+  },
+  "jsr": {
+    "@std/assert@1.0.19": {
+      "integrity": "eaada96ee120cb980bc47e040f82814d786fe8162ecc53c91d8df60b8755991e",
+      "dependencies": [
+        "jsr:@std/internal"
+      ]
+    },
+    "@std/internal@1.0.13": {
+      "integrity": "2f9546691d4ac2d32859c82dff284aaeac980ddeca38430d07941e7e288725c0"
+    }
+  },
   "remote": {
+    "https://cdn.jsdelivr.net/npm/lit-html@3.3.3/+esm": "bef98ac99abfbed7b43613eda2009b5d9c16f30717600e601b52bdd795ead317",
     "https://cdn.skypack.dev/-/lit-html@v2.7.4-2StHDJWm5SxThnkkUVIm/dist=es2019,mode=imports/optimized/lit-html.js": "8b62f74948f2bcab4767981188527f76f2f08d81f9f114c2ab5147f3fbfd3c30",
     "https://cdn.skypack.dev/-/lit-html@v2.7.4-2StHDJWm5SxThnkkUVIm/dist=es2019,mode=types/directive.d.ts": "6f5cd738ca1a9d1f737c102023ba93d9da33a7fc9ebfde3409b7b87adc98aad4",
     "https://cdn.skypack.dev/-/lit-html@v2.7.4-2StHDJWm5SxThnkkUVIm/dist=es2019,mode=types/lit-html.d.ts": "5af3841bad9a39dabeb3833e2d2267d9b52e624346385b0d142b0a9590a88277",
@@ -12,5 +28,10 @@
     "https://deno.land/std@0.192.0/testing/_diff.ts": "1a3c044aedf77647d6cac86b798c6417603361b66b54c53331b312caeb447aea",
     "https://deno.land/std@0.192.0/testing/_format.ts": "a69126e8a469009adf4cf2a50af889aca364c349797e63174884a52ff75cf4c7",
     "https://deno.land/std@0.192.0/testing/asserts.ts": "e16d98b4d73ffc4ed498d717307a12500ae4f2cbe668f1a215632d19fcffc22f"
+  },
+  "workspace": {
+    "dependencies": [
+      "npm:lit-html@3.2.1"
+    ]
   }
 }
